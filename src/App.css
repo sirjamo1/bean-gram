@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
 :root {
 --honeydew: #eaf2e3ff;
 --fluorescent-cyan: #61e8e1ff;
@@ -15,20 +16,101 @@
 }
 /*👉NAVBAR👈*/
 .navbar-container {
+  position: fixed;
+  width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background-color: var(--maize);
+z-index: 99;
+   background-color: var(--maize);
 font-family: 'Gochi Hand', cursive, sans-serif;
+}
+.navbar-container > img {
+  padding: 20px;
 }
 .user-info {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 20px;
 }
 .user-info > img {
  border: 1px solid red;
  border-radius: 50%;
  width: 40px;
  height: 40px;
+ 
+}
+/*👉LOGOUT👈*/
+.logout {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+/*👉CARDS👈*/
+.cards-container {
+background-color: var(--fluorescent-cyan);
+height: 100%;
+display: flex;
+flex-direction: column;
+gap: 30px;
+justify-content: center;
+align-items: center;
+padding-top: 100px;
+
+
+}
+.card {
+  width: 80%;
+  
+  background-color: var(--honeydew);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.poster-details {
+  display: flex;
+align-items: center;
+align-self: flex-start;
+}
+.poster-avatar {
+  object-fit: cover;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 10px;
+}
+.card > h4 {
+  align-self: flex-start;
+  padding: 6px;
+}
+.card-photo {
+  width: 80%;
+  border-radius: 6px;
+}
+.card-description {
+  background-color: var(--bittersweet);
+  height: 80px;
+  box-sizing: border-box;
+  width: 80%;
+  margin-top: 4px;
+  border-radius: 6px;
+  padding: 6px;
+}
+.date-thumb-container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 95%;
+padding: 5px;
+}
+.thumb-up-icon {
+  width: 40px;
+  border-radius: 50%;
+/*👉  position: absolute;
+  bottom: 4px;
+  right: 4px;👈*/
 }

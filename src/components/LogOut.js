@@ -6,7 +6,7 @@ const LogOut = ({ auth }) => {
     };
 
     return (
-        <div>
+        <div className="logout">
             <button onClick={() => logUserOut()}>Log out</button>
         </div>
     );

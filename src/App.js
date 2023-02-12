@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import React, { useEffect, useState } from "react";
 import Login from "./components/Login";
 import LogOut from "./components/LogOut";
+import DisplayCards from "./components/DisplayCards";
 import "./App.css";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { firebaseApp } from "./firebase-config";
@@ -34,6 +35,7 @@ function App() {
         <div className="App">
             <Navbar userName={userName} userPhoto={userPhoto} />
             {loggedIn ? <LogOut auth={auth} /> : <Login />}
+            <DisplayCards />
         </div>
     );
 }
