@@ -10,7 +10,7 @@ const Navbar = () => {
          <img src={beanGramLogo} alt="Bean gram logo" width="100px" />
          <div className="user-info">
              <h3>BEAN</h3>
-             <img src={blankAvatar}width="50px" />
+             <img src={blankAvatar} alt="user avatar" />
          </div>
      </div>
  );
