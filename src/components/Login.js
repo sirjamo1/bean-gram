@@ -8,14 +8,11 @@ import {
     onAuthStateChanged,
 } from "firebase/auth";
 import { firebaseApp } from "../firebase-config";
-import { async } from "@firebase/util";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-     
     const auth = getAuth(firebaseApp);
-
     const loginEmailPassword = async () => {
         try {
             const userCredential = await signInWithEmailAndPassword(
@@ -41,32 +38,36 @@ const Login = () => {
         }
     };
     const signInWithGoogle = () => {
-     const provider = new GoogleAuthProvider();
-         signInWithPopup(auth, provider)
-         .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result)
-          const token = credential.accessToken;
-          const user = result.user;
-         }).catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          const errorEmail = error.customData.email;
-          const credential = GoogleAuthProvider.credentialFromError(error)
-         })
-     
-       };
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential =
+                    GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const errorEmail = error.customData.email;
+                const credential =
+                    GoogleAuthProvider.credentialFromError(error);
+            });
+    };
     return (
-        <div>
+        <div className="login-container">
             <form>
                 <input
                     name="email"
                     type="email"
+                    placeholder="E-mail"
                     required={true}
                     onChange={(e) => setEmail(e.target.value)}
                 ></input>
                 <input
                     name="password"
                     type="password"
+                    placeholder="Password"
                     required={true}
                     onChange={(e) => setPassword(e.target.value)}
                 ></input>

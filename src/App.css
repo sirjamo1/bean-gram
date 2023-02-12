@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
 
 :root {
---honeydew: #eaf2e3ff;
---fluorescent-cyan: #61e8e1ff;
---bittersweet: #f25757ff;
---maize: #f2e863ff;
---naples-yellow: #f2cd60ff;
+    --honeydew: #eaf2e3ff;
+    --fluorescent-cyan: #61e8e1ff;
+    --bittersweet: #f25757ff;
+    --maize: #f2e863ff;
+    --naples-yellow: #f2cd60ff;
+}
+#root {
+    background-color: var(--fluorescent-cyan);
+    height: 100%;
 }
 * {
     margin: 0;
@@ -13,104 +17,154 @@
 }
 
 .app {
+  height: 100%;
 }
 /*👉NAVBAR👈*/
 .navbar-container {
-  position: fixed;
-  width: 100%;
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-z-index: 99;
-   background-color: var(--maize);
-font-family: 'Gochi Hand', cursive, sans-serif;
+    z-index: 99;
+    background-color: var(--maize);
+    font-family: "Gochi Hand", cursive, sans-serif;
+box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
 }
 .navbar-container > img {
-  padding: 20px;
+    padding: 20px;
 }
 .user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
 }
 .user-info > img {
- border: 1px solid red;
- border-radius: 50%;
- width: 40px;
- height: 40px;
- 
+    border: 1px solid red;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.add-button {
+  position:absolute;
+  bottom: 10px;
+  left: 10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+/*👉LOGIN👈*/
+.login-container {
+    position: absolute;
+    display: flex;
+    top: 30%;
+    bottom: 30%;
+    left: 25%;
+    right: 25%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.login-container > form {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.login-container > form > input {
+    text-align: center;
 }
 /*👉LOGOUT👈*/
 .logout {
-  position: absolute;
-  top: 6px;
-  right: 6px;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 999;
 }
 
 /*👉CARDS👈*/
 .cards-container {
-background-color: var(--fluorescent-cyan);
-height: 100%;
-display: flex;
-flex-direction: column;
-gap: 30px;
-justify-content: center;
-align-items: center;
-padding-top: 100px;
-
-
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+.loading {
+    margin-top: 50%;
 }
 .card {
-  width: 80%;
-  
-  background-color: var(--honeydew);
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    width: 80%;
+
+    background-color: var(--honeydew);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .poster-details {
-  display: flex;
-align-items: center;
-align-self: flex-start;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
 }
 .poster-avatar {
-  object-fit: cover;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  padding: 10px;
+    object-fit: cover;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 10px;
 }
 .card > h4 {
-  align-self: flex-start;
-  padding: 6px;
+    align-self: flex-start;
+    padding: 6px;
 }
 .card-photo {
-  width: 80%;
-  border-radius: 6px;
+    width: 80%;
+    border-radius: 6px;
 }
 .card-description {
-  background-color: var(--bittersweet);
-  height: 80px;
-  box-sizing: border-box;
-  width: 80%;
-  margin-top: 4px;
-  border-radius: 6px;
-  padding: 6px;
+    background-color: var(--bittersweet);
+    height: 80px;
+    box-sizing: border-box;
+    width: 80%;
+    margin-top: 4px;
+    border-radius: 6px;
+    padding: 6px;
 }
 .date-thumb-container {
-display: flex;
-align-items: center;
-justify-content: space-between;
-width: 95%;
-padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    padding: 5px;
 }
 .thumb-up-icon {
-  width: 40px;
-  border-radius: 50%;
-/*👉  position: absolute;
-  bottom: 4px;
-  right: 4px;👈*/
+    width: 40px;
+    border-radius: 50%;
+}
+/*👉ADD TO CARDS FORM👈*/
+.add-to-cards-form {
+  position:sticky
+    display: flex;
+    top: 30%;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    flex-direction: column;
+    justify-content: space-evenly;
+  background-color: var(--maize);
+  border-radius: 6px;
+
+}
+.add-to-cards-form > input { 
+  text-align: center;
 }

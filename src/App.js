@@ -3,16 +3,18 @@ import React, { useEffect, useState } from "react";
 import Login from "./components/Login";
 import LogOut from "./components/LogOut";
 import DisplayCards from "./components/DisplayCards";
+import AddToCardsForm from "./components/AddToCardsForm";
 import "./App.css";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import { firebaseApp } from "./firebase-config";
-import blankAvatar from "./assets/images/blankAvatar.png"
+import blankAvatar from "./assets/images/blankAvatar.png";
 
 function App() {
     const [userName, setUserName] = useState("No Bean");
     const [userPhoto, setUserPhoto] = useState(blankAvatar);
     const auth = getAuth(firebaseApp);
     const [loggedIn, setLoggedIn] = useState(false);
+    const [addFormActive, setAddFormActive] = useState(false);
     useEffect(() => {
         const monitorAuthState = async () => {
             await onAuthStateChanged(auth, (user) => {
@@ -31,11 +33,31 @@ function App() {
         };
         monitorAuthState();
     }, []);
+
     return (
-        <div className="App">
+        <div className="app">
             <Navbar userName={userName} userPhoto={userPhoto} />
-            {loggedIn ? <LogOut auth={auth} /> : <Login />}
-            <DisplayCards />
+            {loggedIn ? (
+                <>
+                    <DisplayCards /> <LogOut auth={auth} />
+                    {addFormActive ? (
+                        <AddToCardsForm
+                            userName={userName}
+                            userPhoto={userPhoto}
+                            setAddFormActive={setAddFormActive}
+                        />
+                    ) : (
+                        <button
+                            onClick={() => setAddFormActive(true)}
+                            className="add-button"
+                        >
+                            +
+                        </button>
+                    )}
+                </>
+            ) : (
+                <Login />
+            )}
         </div>
     );
 }
