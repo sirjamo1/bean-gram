@@ -39,7 +39,8 @@ function App() {
             <Navbar userName={userName} userPhoto={userPhoto} />
             {loggedIn ? (
                 <>
-                    <DisplayCards /> <LogOut auth={auth} />
+                    <DisplayCards userName={userName} userPhoto={userPhoto} />{" "}
+                    <LogOut auth={auth} />
                     {addFormActive ? (
                         <AddToCardsForm
                             userName={userName}

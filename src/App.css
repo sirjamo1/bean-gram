@@ -17,7 +17,7 @@
 }
 
 .app {
-  height: 100%;
+    height: 100%;
 }
 /*👉NAVBAR👈*/
 .navbar-container {
@@ -28,9 +28,9 @@
     z-index: 99;
     background-color: var(--maize);
     font-family: "Gochi Hand", cursive, sans-serif;
-box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
--moz-box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 11px 5px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px -1px 11px 5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -1px 11px 5px rgba(0, 0, 0, 0.75);
 }
 .navbar-container > img {
     padding: 20px;
@@ -48,12 +48,12 @@ box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
     height: 40px;
 }
 .add-button {
-  position:absolute;
-  bottom: 10px;
-  left: 10px;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 /*👉LOGIN👈*/
 .login-container {
@@ -107,9 +107,9 @@ box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 .poster-details {
     display: flex;
@@ -131,7 +131,31 @@ box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
     width: 80%;
     border-radius: 6px;
 }
-.card-description {
+.description-comments-container {
+       background-color: var(--bittersweet);
+    height: 80px;
+    box-sizing: border-box;
+    width: 80%;
+    margin-top: 4px;
+    border-radius: 6px;
+    /*👉padding: 6px;👈*/
+    display: flex;
+    flex-direction: column;
+
+}
+.description-comments-button-container {
+display: flex;
+justify-content:space-evenly;
+}
+.description-comments-button-container > button {
+width: 100%;
+cursor: pointer;
+}
+.description-comments-content-container {
+padding: 6px;
+
+}
+/*👉.card-description {
     background-color: var(--bittersweet);
     height: 80px;
     box-sizing: border-box;
@@ -139,7 +163,7 @@ box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
     margin-top: 4px;
     border-radius: 6px;
     padding: 6px;
-}
+}👈*/
 .date-thumb-container {
     display: flex;
     align-items: center;
@@ -147,24 +171,75 @@ box-shadow: 0px -1px 11px 5px rgba(0,0,0,0.75);
     width: 95%;
     padding: 5px;
 }
+.posted-date {
+    font-size: 0.6rem;
+}
+.date-thumb-container > div {
+    display: flex;
+    align-items: center;
+}
 .thumb-up-icon {
     width: 40px;
     border-radius: 50%;
 }
 /*👉ADD TO CARDS FORM👈*/
 .add-to-cards-form {
-  position:sticky
+    position: sticky;
     display: flex;
     top: 30%;
     bottom: 20%;
     left: 10%;
     right: 10%;
+    width: 80%;
+    gap: 10px;
     flex-direction: column;
     justify-content: space-evenly;
-  background-color: var(--maize);
-  border-radius: 6px;
+    /*👉background-color: var(--maize);👈*/
+    border-radius: 6px;
+}
+.add-to-cards-form > input {
+    text-align: center;
+}
+/*👉COMMENTS👈*/
+.comments-container {
+/*👉    position: relative;👈*/
+}
+.comment-info-container {
 
+    overflow-y: scroll;
+    max-height: 30px;
 }
-.add-to-cards-form > input { 
-  text-align: center;
+.single-comment {
 }
+.single-comment * p {
+    font-size: 0.7rem;
+}
+.commenter-info{
+display: flex;
+align-items: center;
+gap: 3px;
+}
+.commenter-info > img {
+    width: 15px;
+    border-radius: 50%;
+}
+.comment-text > p {
+    margin-left: 15px;
+    padding: 2px;
+
+    background-color: var(--maize);
+    border-radius: 6px;
+    font-size: 0.6rem;
+   
+}
+
+.comment-form {
+    display: flex;
+  
+}
+/*👉.comment-form > input {
+    height: 10px;
+}
+.comment-form > button {
+    height: 10px;
+}👈*/
