@@ -15,10 +15,12 @@ function App() {
     const auth = getAuth(firebaseApp);
     const [loggedIn, setLoggedIn] = useState(false);
     const [addFormActive, setAddFormActive] = useState(false);
+    const [user, setUser] = useState()
     useEffect(() => {
         const monitorAuthState = async () => {
             await onAuthStateChanged(auth, (user) => {
                 if (user) {
+                    setUser(user)
                     console.log(user, true);
                     setUserName(user.displayName);
                     setUserPhoto(user.photoURL);
@@ -28,6 +30,7 @@ function App() {
                     setLoggedIn(false);
                     setUserName("No Bean");
                     setUserPhoto(blankAvatar);
+                    setUser("no user")
                 }
             });
         };
@@ -36,10 +39,10 @@ function App() {
 
     return (
         <div className="app">
-            <Navbar userName={userName} userPhoto={userPhoto} />
+            <Navbar userName={userName} userPhoto={userPhoto}  user={user}/>
             {loggedIn ? (
                 <>
-                    <DisplayCards userName={userName} userPhoto={userPhoto} />{" "}
+                    <DisplayCards userName={userName} userPhoto={userPhoto} />
                     <LogOut auth={auth} />
                     {addFormActive ? (
                         <AddToCardsForm

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardComments from "./CardComments";
 import thumbUp from "../assets/icons/thumbUp.png";
-import travel1 from "../assets/images/travel1.jpeg";
-import travel2 from "../assets/images/travel2.jpeg";
-import travel3 from "../assets/images/travel3.jpeg";
 import beanAvatar from "../assets/images/beanAvatar.jpeg";
 import { db } from "../firebase-config";
 import {
@@ -40,9 +37,7 @@ const DisplayCards = ({ userName, userPhoto }) => {
                 const tempCards = [];
                 cardsSnapshot.docs.forEach((doc) => {
                     tempCards.push({ ...doc.data() });
-                    // console.log(doc.id, " =>> ", doc.data());
                 });
-                // console.log(tempCards);
                 setCards(tempCards);
                 setIsLoading(false);
             };
@@ -70,9 +65,8 @@ const DisplayCards = ({ userName, userPhoto }) => {
                     <h3>LOADING...</h3>
                 </div>
             ) : (
-                cards.map((card, i) => {
+                cards.map((card) => {
                     const date = card.postDate.toDate().toUTCString();
-                    console.log(card.showComments);
                     return (
                         <div className="card" key={card.id}>
                             <div className="poster-details">
@@ -83,16 +77,16 @@ const DisplayCards = ({ userName, userPhoto }) => {
                                 />
                                 <h4>{card.name}</h4>
                             </div>
-                            <img className="card-photo" src={travel1} />
+                            <img className="card-photo" src={card.photoURL} />
                             <div className="description-comments-container">
                                 <div className="description-comments-button-container">
                                     <button
                                         style={{
-                                            opacity: !card.showComments
-                                                ? 1
-                                                : 0.5,
+                                            backgroundColor: !card.showComments
+                                                ? "yellow"
+                                                : "white",
                                         }}
-                                        disabled={card.showComments}
+                                        disabled={!card.showComments}
                                         onClick={() =>
                                             switchDescriptionComments(card.id)
                                         }
@@ -101,11 +95,11 @@ const DisplayCards = ({ userName, userPhoto }) => {
                                     </button>
                                     <button
                                         style={{
-                                            opacity: card.showComments
-                                                ? 1
-                                                : 0.5,
+                                            backgroundColor: card.showComments
+                                                ? "yellow"
+                                                : "white",
                                         }}
-                                        disabled={!card.showComments}
+                                        disabled={card.showComments}
                                         onClick={() =>
                                             switchDescriptionComments(card.id)
                                         }
@@ -113,7 +107,7 @@ const DisplayCards = ({ userName, userPhoto }) => {
                                         Comments ({card.comments.length})
                                     </button>
                                 </div>
-                                <div className="description-comments-content-container">
+                                <div className="description-comments">
                                     {card.showComments ? (
                                         <CardComments
                                             comments={card.comments}
@@ -157,55 +151,3 @@ const DisplayCards = ({ userName, userPhoto }) => {
 };
 
 export default DisplayCards;
-
-// <div className="card">
-//                <div className="poster-details">
-//                    <img className="poster-avatar" src={beanAvatar} />
-//                    <h4>Poster Name</h4>
-//                </div>
-//                <img className="card-photo" src={travel1} />
-
-//                <p className="card-description">Description</p>
-//                <div className="date-thumb-container">
-//                    <p>date</p>
-//                    <img
-//                        className="thumb-up-icon"
-//                        src={thumbUp}
-//                        alt="thumb up image"
-//                    />
-//                </div>
-//            </div>
-//            <div className="card">
-//                <div className="poster-details">
-//                    <img className="poster-avatar" src={beanAvatar} />
-//                    <h4>Poster Name</h4>
-//                </div>
-//                <img className="card-photo" src={travel2} />
-
-//                <p className="card-description">Description</p>
-//                <div className="date-thumb-container">
-//                    <p>date</p>
-//                    <img
-//                        className="thumb-up-icon"
-//                        src={thumbUp}
-//                        alt="thumb up image"
-//                    />
-//                </div>
-//            </div>
-//            <div className="card">
-//                <div className="poster-details">
-//                    <img className="poster-avatar" src={beanAvatar} />
-//                    <h4>Poster Name</h4>
-//                </div>
-//                <img className="card-photo" src={travel3} />
-
-//                <p className="card-description">Description</p>
-//                <div className="date-thumb-container">
-//                    <p>date</p>
-//                    <img
-//                        className="thumb-up-icon"
-//                        src={thumbUp}
-//                        alt="thumb up image"
-//                    />
-//                </div>
-//            </div>

@@ -1,17 +1,7 @@
-import react, { useState, useEffect } from "react";
+import { useState } from "react";
 import { db } from "../firebase-config";
 import { nanoid } from "nanoid";
-import {
-    collection,
-    getDocs,
-    getFirestore,
-    setDoc,
-    doc,
-    addDoc,
-    query,
-    serverTimestamp,
-    updateDoc,
-} from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
 const CardComments = ({ comments, id, userName, userPhoto }) => {
     const [commentText, setCommentText] = useState("");
@@ -35,7 +25,6 @@ const CardComments = ({ comments, id, userName, userPhoto }) => {
             comments: tempComments,
         });
     };
-//NOTE: styling comments section
     return (
         <div className="comments-container">
             {comments.length > 0 ? (
@@ -62,7 +51,7 @@ const CardComments = ({ comments, id, userName, userPhoto }) => {
                     <form className="comment-form">
                         <input
                             type="text"
-                            placeholder="Add comment"
+                            placeholder="Add a comment"
                             onChange={(e) => setCommentText(e.target.value)}
                         />
                         <button
@@ -81,7 +70,7 @@ const CardComments = ({ comments, id, userName, userPhoto }) => {
                     <form className="comment-form">
                         <input
                             type="text"
-                            placeholder="Add comment"
+                            placeholder="Add a comment"
                             onChange={(e) => setCommentText(e.target.value)}
                         />
                         <button
