@@ -7,25 +7,35 @@
     --maize: #f2e863ff;
     --naples-yellow: #f2cd60ff;
 }
-#root {
-    background-color: var(--fluorescent-cyan);
+html,
+body,
+#app,
+#app > div {
     height: 100%;
+    background-color: var(--fluorescent-cyan);
 }
+/*👉#root {
+    
+
+}👈*/
 * {
     margin: 0;
     padding: 0;
+    font-family: "Gochi Hand", cursive, sans-serif;
+    letter-spacing: 0.6px;
 }
 
-.app {
-    height: 100%;
-}
+/*👉.app {
+   
+}👈*/
 /*👉NAVBAR👈*/
 .navbar-container {
     position: fixed;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    z-index: 99;
+    z-index: 999;
+    height: 82px;
     background-color: var(--maize);
     font-family: "Gochi Hand", cursive, sans-serif;
     box-shadow: 0px -1px 11px 5px rgba(0, 0, 0, 0.75);
@@ -42,20 +52,48 @@
     padding: 20px;
 }
 .user-info > img {
-    border: 1px solid red;
+    border: 1px solid var(--bittersweet);
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    cursor: pointer;
+}
+.nav-list {
+    position: fixed;
+    background-color: var(--maize);
+    top: 81px;
+    right: 0px;
+    width: 150px;
+box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
+}
+.nav-list > li {
+    padding: 10px;
+    list-style: none;
+}
+.nav-list > li:hover {
+    background-color: var(--bittersweet);
+}
+
+.nav-list > form {
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .add-button {
-    position: sticky;
-    bottom: 10px;
-    left: 10px;
+    position: fixed;
+    top: 90px;
+    right: 5px;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
     opacity: 0.7;
+    font-size: 3rem;
+    z-index: 99
 }
+
 /*👉LOGIN👈*/
 .login-container {
     position: absolute;
@@ -66,47 +104,50 @@
     right: 25%;
     flex-direction: column;
     justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
 }
 .login-container > form {
     display: flex;
     flex-direction: column;
-
     justify-content: space-evenly;
-    gap: 10px;
+    gap: 15px;
 }
 .login-container > form > input {
     text-align: center;
 }
+.error-message {
+    color: red;
+    font-size: 0.55rem;
+}
 /*👉LOGOUT👈*/
 .logout {
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0px;
     z-index: 999;
-    
 }
 .logout > button {
     background-color: var(--bittersweet);
-border-radius: 6px;
-color:var(--maize);
+    border-radius: 6px;
+    color: var(--maize);
 }
 
 /*👉CARDS👈*/
 .cards-container {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 30px;
     justify-content: center;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 120px;
+    padding-bottom: 50px;
 }
 .loading {
     margin-top: 50%;
 }
 .card {
     width: 80%;
-
     background-color: var(--honeydew);
     border-radius: 6px;
     display: flex;
@@ -114,9 +155,9 @@ color:var(--maize);
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 5px 15px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 5px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
 .poster-details {
     display: flex;
@@ -136,6 +177,8 @@ color:var(--maize);
 }
 .card-photo {
     width: 80%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 6px;
 }
 .date-thumb-container {
@@ -147,6 +190,9 @@ color:var(--maize);
 }
 .posted-date {
     font-size: 0.6rem;
+}
+.card-description {
+    padding: 6px;
 }
 .date-thumb-container > div {
     display: flex;
@@ -178,7 +224,7 @@ color:var(--maize);
 /*👉COMMENTS👈*/
 
 .description-comments-container {
-       background-color: var(--bittersweet);
+    background-color: var(--bittersweet);
     height: 80px;
     box-sizing: border-box;
     width: 80%;
@@ -186,27 +232,25 @@ color:var(--maize);
     border-radius: 6px;
     display: flex;
     flex-direction: column;
-
 }
 .description-comments-button-container {
-display: flex;
-justify-content:space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 }
 .description-comments-button-container > button {
-width: 100%;
-cursor: pointer;
+    width: 100%;
+    cursor: pointer;
 }
 .description-comments {
-/*👉padding: 6px;👈*/
-
+    /*👉padding: 6px;👈*/
+   
 }
 .comments-container {
-   position: relative;
+    position: relative;
 
-height: 60px;
+    height: 60px;
 }
 .comment-info-container {
-
     overflow-y: scroll;
     max-height: 40px;
 }
@@ -215,10 +259,10 @@ height: 60px;
 .single-comment * p {
     font-size: 0.7rem;
 }
-.commenter-info{
-display: flex;
-align-items: center;
-gap: 3px;
+.commenter-info {
+    display: flex;
+    align-items: center;
+    gap: 3px;
 }
 .commenter-info > img {
     width: 15px;
@@ -232,7 +276,6 @@ gap: 3px;
     background-color: var(--maize);
     border-radius: 6px;
     font-size: 0.6rem;
-   
 }
 
 .comment-form {
@@ -244,7 +287,6 @@ gap: 3px;
     align-content: stretch;
     border-collapse: collapse;
     border: none;
-  
 }
 /*👉.comment-form > input {
     height: 10px;
@@ -252,3 +294,30 @@ gap: 3px;
 .comment-form > button {
     height: 10px;
 }👈*/
+
+@media only screen and (min-width: 600px){
+    /*👉LOGIN👈*/
+.login-container {
+    left: 35%;
+    right: 35%;
+}
+
+.login-container > form > input {
+    text-align: center;
+    height: 30px;
+    font-size: 1.2rem;
+}
+.login-container > form > button {
+    text-align: center;
+    height: 30px;
+    font-size: 1.2rem;
+}
+.google-button {
+     height: 30px;
+    font-size: 1.2rem;
+}
+.error-message {
+    font-size: 1.1rem;
+}
+    
+}

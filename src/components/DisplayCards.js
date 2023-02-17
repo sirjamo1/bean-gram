@@ -6,22 +6,35 @@ import { db } from "../firebase-config";
 import {
     collection,
     query,
-    getDocs,
     updateDoc,
     doc,
     getDoc,
+    orderBy,
+    onSnapshot,
 } from "firebase/firestore";
 
-const DisplayCards = ({ userName, userPhoto }) => {
+const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
     const [cards, setCards] = useState();
     const [isLoading, setIsLoading] = useState(true);
-
-    const cardsRef = query(collection(db, "beanCards"));
     const updateLikes = async (id) => {
         try {
             const likesDocRef = doc(db, "beanCards", `${id}`);
             const currentStateSnap = await getDoc(likesDocRef);
-            let newLikes = (currentStateSnap.data().likes += 1);
+            let newLikes = currentStateSnap.data().likes;
+            if (newLikes.length > 0) {
+                const index = newLikes.findIndex((e) => e.uid === user.uid);
+                console.log(index);
+                if (index > -1) {
+                    newLikes.splice(index, 1);
+                    console.log(newLikes, "after splice");
+                }
+            } else {
+                newLikes.unshift({
+                    uid: user.uid,
+                    name: userName,
+                });
+                console.log(newLikes, "after unshift");
+            }
             await updateDoc(likesDocRef, {
                 likes: newLikes,
             });
@@ -32,14 +45,18 @@ const DisplayCards = ({ userName, userPhoto }) => {
     useEffect(() => {
         try {
             const getCards = async () => {
-                console.log("getCards ran");
-                const cardsSnapshot = await getDocs(cardsRef);
-                const tempCards = [];
-                cardsSnapshot.docs.forEach((doc) => {
-                    tempCards.push({ ...doc.data() });
+                const cardQuery = query(
+                    collection(db, "beanCards"),
+                    orderBy("postDate", "desc")
+                );
+                onSnapshot(cardQuery, (querySnapshot) => {
+                    const tempCards = [];
+                    querySnapshot.forEach((doc) => {
+                        tempCards.push(doc.data());
+                    });
+                    setCards(tempCards);
+                    setIsLoading(false);
                 });
-                setCards(tempCards);
-                setIsLoading(false);
             };
 
             getCards();
@@ -49,7 +66,6 @@ const DisplayCards = ({ userName, userPhoto }) => {
     }, []);
     const switchDescriptionComments = (id) => {
         let tempCards = [...cards];
-        console.log(tempCards);
         for (let i = 0; i < tempCards.length; i += 1) {
             if (tempCards[i].id === id) {
                 tempCards[i].showComments = !tempCards[i].showComments;
@@ -57,7 +73,6 @@ const DisplayCards = ({ userName, userPhoto }) => {
         }
         setCards(tempCards);
     };
-    console.log(cards);
     return (
         <div className="cards-container">
             {isLoading ? (
@@ -66,7 +81,9 @@ const DisplayCards = ({ userName, userPhoto }) => {
                 </div>
             ) : (
                 cards.map((card) => {
-                    const date = card.postDate.toDate().toUTCString();
+                    const date = card.postDate
+                        ? card.postDate.toDate().toUTCString()
+                        : null;
                     return (
                         <div className="card" key={card.id}>
                             <div className="poster-details">
@@ -127,8 +144,8 @@ const DisplayCards = ({ userName, userPhoto }) => {
                                 <p className="posted-date">Posted: {date}</p>
                                 <div>
                                     <p>
-                                        {card.likes > 0
-                                            ? `(${card.likes})`
+                                        {card.likes.length > 0
+                                            ? `(${card.likes.length})`
                                             : ""}
                                     </p>
                                     <img
@@ -136,8 +153,16 @@ const DisplayCards = ({ userName, userPhoto }) => {
                                         src={thumbUp}
                                         alt="thumb up icon"
                                         style={{
-                                            opacity: card.likes > 0 ? 1 : 0.4,
+                                            opacity: card.likes.some(
+                                                (e) => e.uid === user.uid
+                                            )
+                                                ? 1
+                                                : 0.4,
                                         }}
+                                        // style={{
+                                        //     opacity:
+                                        //         card.likes.length > 0 ? 1 : 0.4,
+                                        // }}
                                         onClick={() => updateLikes(card.id)}
                                     />
                                 </div>

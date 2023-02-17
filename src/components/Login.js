@@ -12,6 +12,8 @@ import { firebaseApp } from "../firebase-config";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("")
+        const [googleErrorMessage, setGoogleErrorMessage] = useState("");
     const auth = getAuth(firebaseApp);
     const loginEmailPassword = async () => {
         try {
@@ -22,7 +24,8 @@ const Login = () => {
             );
             console.log(userCredential.user);
         } catch (error) {
-            console.log(error);
+            setErrorMessage(error.message)
+
         }
     };
     const createAccount = async () => {
@@ -34,7 +37,7 @@ const Login = () => {
             );
             console.log(userCredential.user);
         } catch (error) {
-            console.log(error);
+            setErrorMessage(error.message);
         }
     };
     const signInWithGoogle = () => {
@@ -71,6 +74,7 @@ const Login = () => {
                     required={true}
                     onChange={(e) => setPassword(e.target.value)}
                 ></input>
+
                 <button
                     onClick={(e) => {
                         e.preventDefault();
@@ -89,10 +93,12 @@ const Login = () => {
                 >
                     Sign up
                 </button>
+                <p className="error-message">{errorMessage}</p>
             </form>
-            <button onClick={() => signInWithGoogle()}>
+            <button className="google-button" onClick={() => signInWithGoogle()}>
                 Sign in with Google
             </button>
+            <p className="error-message">{googleErrorMessage}</p>
         </div>
     );
 };
@@ -101,3 +107,8 @@ export default Login;
 
 //jam_how@hotmail.com
 //passwordtest
+
+//teddy@hotmail.com
+//teddypassword
+//bean@hotmail.com
+//beanpassword

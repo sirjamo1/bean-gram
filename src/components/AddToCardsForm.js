@@ -13,6 +13,7 @@ const AddToCardsForm = ({ userName, userPhoto, setAddFormActive }) => {
     const [description, setDescription] = useState("");
     const [file, setFile] = useState("");
     const [percent, setPercent] = useState();
+    console.log(new Date())
 
     const addDetailsToFirestore = async (id, url) => {
         console.log("details ran")
@@ -22,7 +23,7 @@ const AddToCardsForm = ({ userName, userPhoto, setAddFormActive }) => {
             photoURL: url,
             description: description,
             comments: [],
-            likes: 0,
+            likes: [],
             postDate: serverTimestamp(),
             id: id,
             showComments: false,
