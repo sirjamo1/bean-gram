@@ -64,11 +64,11 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
             console.log({ error });
         }
     }, []);
-    const switchDescriptionComments = (id) => {
+    const switchDescriptionComments = (id, value) => {
         let tempCards = [...cards];
         for (let i = 0; i < tempCards.length; i += 1) {
             if (tempCards[i].id === id) {
-                tempCards[i].showComments = !tempCards[i].showComments;
+                tempCards[i].showComments = value === "comments" ? true : false;
             }
         }
         setCards(tempCards);
@@ -103,9 +103,12 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
                                                 ? "yellow"
                                                 : "white",
                                         }}
-                                        disabled={!card.showComments}
+                                        
                                         onClick={() =>
-                                            switchDescriptionComments(card.id)
+                                            switchDescriptionComments(
+                                                card.id,
+                                                "description"
+                                            )
                                         }
                                     >
                                         Description
@@ -116,9 +119,12 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
                                                 ? "yellow"
                                                 : "white",
                                         }}
-                                        disabled={card.showComments}
+                                      
                                         onClick={() =>
-                                            switchDescriptionComments(card.id)
+                                            switchDescriptionComments(
+                                                card.id,
+                                                "comments"
+                                            )
                                         }
                                     >
                                         Comments ({card.comments.length})

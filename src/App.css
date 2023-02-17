@@ -204,28 +204,43 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
 }
 /*👉ADD TO CARDS FORM👈*/
 .add-to-cards-form {
-    position: sticky;
+    position: fixed;
     display: flex;
-    top: 30%;
-    bottom: 20%;
-    left: 10%;
-    right: 10%;
-    width: 80%;
-    height: 200px;
-    gap: 10px;
+    width: 100%;
+    height: 100%;
+    top: 10px;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     background-color: var(--maize);
+}
+.photo-upload {
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.add-to-cards-form > label > textarea {
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+
+}
+.add-to-cards-form > button {
+    width: 130px;
+    height: 60px;
     border-radius: 6px;
 }
-.add-to-cards-form > input {
-    text-align: center;
+.submit-photo-button {
+background-color: rgb(57, 234, 57);
+}
+.cancel-photo-button {
+background-color: var(--bittersweet);
 }
 /*👉COMMENTS👈*/
 
 .description-comments-container {
     background-color: var(--bittersweet);
-    height: 80px;
+    height: 120px;
     box-sizing: border-box;
     width: 80%;
     margin-top: 4px;
@@ -242,19 +257,18 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
     cursor: pointer;
 }
 .description-comments {
-    /*👉padding: 6px;👈*/
-   
+    height: 100%;
 }
 .comments-container {
     position: relative;
-
-    height: 60px;
+    height: 100%;
 }
 .comment-info-container {
     overflow-y: scroll;
-    max-height: 40px;
+    height: 80px;
 }
 .single-comment {
+    padding: 2px;
 }
 .single-comment * p {
     font-size: 0.7rem;
@@ -288,20 +302,16 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
     border-collapse: collapse;
     border: none;
 }
-/*👉.comment-form > input {
-    height: 10px;
+.comment-form button {
+    background-color: rgb(57, 234, 57);
+    border-radius: 6px;
 }
-.comment-form > button {
-    height: 10px;
-}👈*/
 
 @media only screen and (min-width: 600px){
-    /*👉LOGIN👈*/
 .login-container {
     left: 35%;
     right: 35%;
 }
-
 .login-container > form > input {
     text-align: center;
     height: 30px;
@@ -320,4 +330,13 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
     font-size: 1.1rem;
 }
     
+.card {
+    width: 50%;
+}
+.card-photo {
+    height: 300px;
+}
+.posted-date {
+    font-size: 0.8rem;
+}
 }

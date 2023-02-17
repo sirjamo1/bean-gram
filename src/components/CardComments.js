@@ -18,7 +18,7 @@ const CardComments = ({ comments, id, userName, userPhoto }) => {
             commentDate: `${dd}-${mm}-${yyyy}`,
             commentId: `${id}-${nanoid()}`,
         };
-        tempComments.unshift(comment);
+        tempComments.push(comment);
         const cardRef = doc(db, "beanCards", `${id}`);
 
         await updateDoc(cardRef, {
@@ -65,8 +65,8 @@ const CardComments = ({ comments, id, userName, userPhoto }) => {
                     </form>
                 </div>
             ) : (
-                <div>
-                    <p>No comments</p>
+                <div >
+                    <p style={{padding: "6px"}}>No comments</p>
                     <form className="comment-form">
                         <input
                             type="text"

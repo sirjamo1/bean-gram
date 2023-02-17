@@ -13,7 +13,6 @@ const AddToCardsForm = ({ userName, userPhoto, setAddFormActive }) => {
     const [description, setDescription] = useState("");
     const [file, setFile] = useState("");
     const [percent, setPercent] = useState();
-    console.log(new Date())
 
     const addDetailsToFirestore = async (id, url) => {
         console.log("details ran")
@@ -54,21 +53,26 @@ const AddToCardsForm = ({ userName, userPhoto, setAddFormActive }) => {
     };
     return (
         <form className="add-to-cards-form">
-            <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setFile(e.target.files[0])}
-            />
-            <input
-                name="description"
-                placeholder="Description"
-                required={true}
-                onChange={(e) => {
-                    setDescription(e.target.value);
-                    console.log(description);
-                }}
-            />
+            <label className="photo-upload">
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setFile(e.target.files[0])}
+                />
+            </label>
+            <label>
+                <textarea
+                    name="description"
+                    placeholder="Description"
+                    required={true}
+                    onChange={(e) => {
+                        setDescription(e.target.value);
+                        console.log(description);
+                    }}
+                />
+            </label>
             <button
+                className="submit-photo-button"
                 type="submit"
                 onClick={(e) => {
                     e.preventDefault();
@@ -76,6 +80,12 @@ const AddToCardsForm = ({ userName, userPhoto, setAddFormActive }) => {
                 }}
             >
                 Submit
+            </button>
+            <button
+                className="cancel-photo-button"
+                onClick={() => setAddFormActive(false)}
+            >
+                Cancel
             </button>
         </form>
     );
