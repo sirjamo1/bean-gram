@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/bean-gram/static/css/main.9fa8001d.css",
-    "main.js": "/bean-gram/static/js/main.94e4e467.js",
+    "main.js": "/bean-gram/static/js/main.323dc834.js",
     "static/media/beanGramLogo.png": "/bean-gram/static/media/beanGramLogo.724a6ab38a40064f477e.png",
     "static/media/blankAvatar.png": "/bean-gram/static/media/blankAvatar.369a5a26147615178295.png",
     "static/media/thumbUp.png": "/bean-gram/static/media/thumbUp.e228fdd6d59c3484eb22.png",
     "index.html": "/bean-gram/index.html",
     "main.9fa8001d.css.map": "/bean-gram/static/css/main.9fa8001d.css.map",
-    "main.94e4e467.js.map": "/bean-gram/static/js/main.94e4e467.js.map"
+    "main.323dc834.js.map": "/bean-gram/static/js/main.323dc834.js.map"
   },
   "entrypoints": [
     "static/css/main.9fa8001d.css",
-    "static/js/main.94e4e467.js"
+    "static/js/main.323dc834.js"
   ]
 }
