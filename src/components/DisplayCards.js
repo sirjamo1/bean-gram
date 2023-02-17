@@ -27,6 +27,11 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
                 if (index > -1) {
                     newLikes.splice(index, 1);
                     console.log(newLikes, "after splice");
+                } else {
+                    newLikes.unshift({
+                        uid: user.uid,
+                        name: userName,
+                    });
                 }
             } else {
                 newLikes.unshift({
