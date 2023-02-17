@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/sirjamo1/bean-gram">
+  <a href="http://sirjamo1.github.io/bean-gram">
     <img src="src/assets/images/beanGramLogo.png" alt="Logo" width="180" height="80">
   </a>
 
@@ -22,7 +22,7 @@
     <a href="https://github.com/sirjamo1/bean-gram"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/sirjamo1/bean-gram">View Demo</a>
+    <a href="http://sirjamo1.github.io/bean-gram">View Demo</a>
     ·
     <a href="https://github.com/sirjamo1/bean-gram/issues">Report Bug</a>
     ·
@@ -61,23 +61,15 @@ Features :
    <li>Fully responsive</li>
 </ul>
 
- <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/mobile1.png" alt="Logo" width="180" height="370">
-  </a> <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/mobile2.png" alt="Logo" width="180" height="370">
-  </a> <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/mobile3.png" alt="Logo" width="180" height="370">
-  </a> <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/mobile4.png" alt="Logo" width="180" height="370">
-  </a> <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/screen1.png" alt="Logo" width="526" height="411">
-  </a> <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/screen2.png" alt="Logo" width="526" height="411">
-  </a> <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/screen3.png" alt="Logo" width="526" height="411">
-  </a> <a href="https://github.com/sirjamo1/bean-gram">
-    <img src="src/assets/screenshots/screen4.png" alt="Logo" width="526" height="411">
-  </a>
+   <img src="src/assets/screenshots/mobile1.png" alt="Logo" width="180" height="370" />
+  <img src="src/assets/screenshots/mobile2.png" alt="Logo" width="180" height="370" />
+   <img src="src/assets/screenshots/mobile3.png" alt="Logo" width="180" height="370" />
+   <img src="src/assets/screenshots/mobile4.png" alt="Logo" width="180" height="370" />
+
+   <img src="src/assets/screenshots/screen1.png" alt="Logo" width="526" height="411" />
+   <img src="src/assets/screenshots/screen2.png" alt="Logo" width="526" height="411" />
+   <img src="src/assets/screenshots/screen3.png" alt="Logo" width="526" height="411" />
+   <img src="src/assets/screenshots/screen4.png" alt="Logo" width="526" height="411" />
 
 <h4>Assignment :</h4>
 
