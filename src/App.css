@@ -14,10 +14,7 @@ body,
     height: 100%;
     background-color: var(--fluorescent-cyan);
 }
-/*👉#root {
-    
 
-}👈*/
 * {
     margin: 0;
     padding: 0;
@@ -25,9 +22,6 @@ body,
     letter-spacing: 0.6px;
 }
 
-/*👉.app {
-   
-}👈*/
 /*👉NAVBAR👈*/
 .navbar-container {
     position: fixed;
@@ -64,20 +58,20 @@ body,
     top: 81px;
     right: 0px;
     width: 150px;
-box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: -2px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -2px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 6px 5px 0px rgba(0, 0, 0, 0.75);
 }
 .nav-list > li {
     padding: 10px;
     list-style: none;
+    cursor: pointer;
 }
 .nav-list > li:hover {
     background-color: var(--bittersweet);
 }
 
 .nav-list > form {
-
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -91,7 +85,8 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
     height: 55px;
     opacity: 0.7;
     font-size: 3rem;
-    z-index: 99
+    z-index: 99;
+    cursor: pointer;
 }
 
 /*👉LOGIN👈*/
@@ -113,12 +108,15 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
     justify-content: space-evenly;
     gap: 15px;
 }
-.login-container > form > input {
+.login-container > form input {
     text-align: center;
 }
 .error-message {
     color: red;
     font-size: 0.55rem;
+}
+.google-button {
+    width: 140px;
 }
 /*👉LOGOUT👈*/
 .logout {
@@ -201,6 +199,7 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
 .thumb-up-icon {
     width: 40px;
     border-radius: 50%;
+    cursor: pointer;
 }
 /*👉ADD TO CARDS FORM👈*/
 .add-to-cards-form {
@@ -223,7 +222,6 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
     width: 300px;
     height: 200px;
     padding: 10px;
-
 }
 .add-to-cards-form > button {
     width: 130px;
@@ -231,10 +229,10 @@ box-shadow: -2px 6px 5px 0px rgba(0,0,0,0.75);
     border-radius: 6px;
 }
 .submit-photo-button {
-background-color: rgb(57, 234, 57);
+    background-color: rgb(57, 234, 57);
 }
 .cancel-photo-button {
-background-color: var(--bittersweet);
+    background-color: var(--bittersweet);
 }
 /*👉COMMENTS👈*/
 
@@ -307,36 +305,43 @@ background-color: var(--bittersweet);
     border-radius: 6px;
 }
 
-@media only screen and (min-width: 600px){
-.login-container {
-    left: 35%;
-    right: 35%;
-}
-.login-container > form > input {
-    text-align: center;
-    height: 30px;
-    font-size: 1.2rem;
-}
-.login-container > form > button {
-    text-align: center;
-    height: 30px;
-    font-size: 1.2rem;
-}
-.google-button {
-     height: 30px;
-    font-size: 1.2rem;
-}
-.error-message {
-    font-size: 1.1rem;
-}
-    
-.card {
-    width: 50%;
-}
-.card-photo {
-    height: 300px;
-}
-.posted-date {
-    font-size: 0.8rem;
-}
+@media only screen and (min-width: 600px) {
+    .login-container {
+        left: 35%;
+        right: 35%;
+    }
+    .login-container > form input {
+        text-align: center;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+    .login-container > form  button {
+        text-align: center;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+    .google-button {
+        width: 200px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    .error-message {
+        font-size: 1.1rem;
+    }
+
+    .card {
+        width: 50%;
+    }
+    .card-photo {
+        height: 300px;
+    }
+    .posted-date {
+        font-size: 0.8rem;
+    }
+    .add-button {
+        top: 110px;
+        right: 20px;
+        width: 155px;
+        height: 155px;
+    }
 }

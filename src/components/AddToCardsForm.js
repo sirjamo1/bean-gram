@@ -15,7 +15,6 @@ const AddToCardsForm = ({ userName, userPhoto, setAddFormActive }) => {
     const [percent, setPercent] = useState();
 
     const addDetailsToFirestore = async (id, url) => {
-        console.log("details ran")
         await setDoc(doc(db, "beanCards", `${id}`), {
             name: userName,
             avatar: userPhoto,
@@ -53,14 +52,15 @@ const AddToCardsForm = ({ userName, userPhoto, setAddFormActive }) => {
     };
     return (
         <form className="add-to-cards-form">
-            <label className="photo-upload">
+            <label htmlFor="add photo" className="photo-upload">
                 <input
+                name="add photo"
                     type="file"
                     accept="image/*"
                     onChange={(e) => setFile(e.target.files[0])}
                 />
             </label>
-            <label>
+            <label htmlFor="description">
                 <textarea
                     name="description"
                     placeholder="Description"

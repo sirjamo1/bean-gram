@@ -49,11 +49,14 @@ const CardComments = ({ comments, id, userName, userPhoto }) => {
                         ))}
                     </div>
                     <form className="comment-form">
-                        <input
-                            type="text"
-                            placeholder="Add a comment"
-                            onChange={(e) => setCommentText(e.target.value)}
-                        />
+                        <label htmlFor="add comment">
+                            <input
+                            name="add comment"
+                                type="text"
+                                placeholder="Add a comment"
+                                onChange={(e) => setCommentText(e.target.value)}
+                            />
+                        </label>
                         <button
                             onClick={(e) => {
                                 e.preventDefault();
@@ -65,8 +68,8 @@ const CardComments = ({ comments, id, userName, userPhoto }) => {
                     </form>
                 </div>
             ) : (
-                <div >
-                    <p style={{padding: "6px"}}>No comments</p>
+                <div>
+                    <p style={{ padding: "6px" }}>No comments</p>
                     <form className="comment-form">
                         <input
                             type="text"

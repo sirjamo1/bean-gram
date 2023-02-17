@@ -111,10 +111,15 @@ const Navbar = ({
                                     updateName();
                                 }}
                             >
-                                <input
-                                    placeholder={userName}
-                                    onChange={(e) => setName(e.target.value)}
-                                />
+                                <label htmlFor="change user name">
+                                    <input
+                                        name="change user name"
+                                        placeholder={userName}
+                                        onChange={(e) =>
+                                            setName(e.target.value)
+                                        }
+                                    />
+                                </label>
                                 <button type="submit">change</button>
                             </form>
                         ) : (
@@ -136,11 +141,16 @@ const Navbar = ({
                                 }}
                                 className="add-to-cards-form"
                             >
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={(e) => setFile(e.target.files[0])}
-                                />
+                                <label htmlFor="add avatar photo">
+                                    <input
+                                        name="add avatar photo"
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={(e) =>
+                                            setFile(e.target.files[0])
+                                        }
+                                    />
+                                </label>
                                 {/* <p>{percent} %</p> */}
                                 <button type="submit">change</button>
                             </form>
@@ -158,14 +168,3 @@ const Navbar = ({
 
 export default Navbar;
 
-// const LogOut = ({ auth }) => {
-//     const logUserOut = async () => {
-//         await signOut(auth);
-//     };
-
-//     return (
-//         <div className="logout">
-//             <button onClick={() => logUserOut()}>Log out</button>
-//         </div>
-//     );
-// };

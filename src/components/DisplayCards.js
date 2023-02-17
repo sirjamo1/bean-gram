@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardComments from "./CardComments";
 import thumbUp from "../assets/icons/thumbUp.png";
-import beanAvatar from "../assets/images/beanAvatar.jpeg";
+import blankAvatar from "../assets/images/blankAvatar.png";
 import { db } from "../firebase-config";
 import {
     collection,
@@ -89,7 +89,9 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
                             <div className="poster-details">
                                 <img
                                     className="poster-avatar"
-                                    src={card.avatar ? card.avatar : beanAvatar}
+                                    src={
+                                        card.avatar ? card.avatar : blankAvatar
+                                    }
                                     alt="User avatar"
                                 />
                                 <h4>{card.name}</h4>
@@ -103,7 +105,6 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
                                                 ? "yellow"
                                                 : "white",
                                         }}
-                                        
                                         onClick={() =>
                                             switchDescriptionComments(
                                                 card.id,
@@ -119,7 +120,6 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
                                                 ? "yellow"
                                                 : "white",
                                         }}
-                                      
                                         onClick={() =>
                                             switchDescriptionComments(
                                                 card.id,
@@ -165,10 +165,6 @@ const DisplayCards = ({ userName, userPhoto, addFormActive, user }) => {
                                                 ? 1
                                                 : 0.4,
                                         }}
-                                        // style={{
-                                        //     opacity:
-                                        //         card.likes.length > 0 ? 1 : 0.4,
-                                        // }}
                                         onClick={() => updateLikes(card.id)}
                                     />
                                 </div>

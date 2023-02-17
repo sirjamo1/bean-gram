@@ -12,8 +12,8 @@ import { firebaseApp } from "../firebase-config";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("")
-        const [googleErrorMessage, setGoogleErrorMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [googleErrorMessage, setGoogleErrorMessage] = useState("");
     const auth = getAuth(firebaseApp);
     const loginEmailPassword = async () => {
         try {
@@ -24,8 +24,7 @@ const Login = () => {
             );
             console.log(userCredential.user);
         } catch (error) {
-            setErrorMessage(error.message)
-
+            setErrorMessage(error.message);
         }
     };
     const createAccount = async () => {
@@ -60,20 +59,24 @@ const Login = () => {
     return (
         <div className="login-container">
             <form>
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="E-mail"
-                    required={true}
-                    onChange={(e) => setEmail(e.target.value)}
-                ></input>
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    required={true}
-                    onChange={(e) => setPassword(e.target.value)}
-                ></input>
+                <label htmlFor="name">
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="E-mail"
+                        required={true}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </label>
+                <label htmlFor="password">
+                    <input
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        required={true}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </label>
 
                 <button
                     onClick={(e) => {
@@ -95,7 +98,10 @@ const Login = () => {
                 </button>
                 <p className="error-message">{errorMessage}</p>
             </form>
-            <button className="google-button" onClick={() => signInWithGoogle()}>
+            <button
+                className="google-button"
+                onClick={() => signInWithGoogle()}
+            >
                 Sign in with Google
             </button>
             <p className="error-message">{googleErrorMessage}</p>
@@ -104,11 +110,3 @@ const Login = () => {
 };
 
 export default Login;
-
-//jam_how@hotmail.com
-//passwordtest
-
-//teddy@hotmail.com
-//teddypassword
-//bean@hotmail.com
-//beanpassword
